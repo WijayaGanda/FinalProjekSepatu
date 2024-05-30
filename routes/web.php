@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 // klo dah kelar diganti lagi ke home
 Route::get('/', function () {
     return view('barang.create');
@@ -21,3 +22,7 @@ Route::get('/', function () {
 
 Route::resource('barangs', SepatuController::class);
 Route::get('home',[HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
