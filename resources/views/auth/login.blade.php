@@ -9,7 +9,7 @@
     @vite('resources/sass/app.scss')
 </head>
 
-<body class="d-flex justify-content-center align-items-center min-vh-100" style="background-color: darkslategray">
+<body class="d-flex justify-content-center align-items-center min-vh-100" style="background-color:rgb(7, 7, 175)">
     @vite('resources/js/app.js')
     @include('sweetalert::alert')
     @stack('scripts')
