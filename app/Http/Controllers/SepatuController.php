@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Shoe;
+use App\Models\Category;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class SepatuController extends Controller
@@ -11,7 +14,13 @@ class SepatuController extends Controller
      */
     public function index()
     {
-        //
+        $pageTitle = 'Daftar Sepatu';
+        // ELOQUENT
+        $shoes = Shoe::all();
+        return view('barang.index', [
+            'pageTitle' => $pageTitle,
+            'shoes' => $shoes
+        ]);
     }
 
     /**
