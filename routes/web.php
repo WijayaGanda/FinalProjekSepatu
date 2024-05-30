@@ -22,7 +22,8 @@ Route::get('/', function () {
 
 Route::resource('barangs', SepatuController::class);
 Route::get('home',[HomeController::class, 'index'])->name('home');
+Route::get('getShoes', [SepatuController::class, 'getData'])->name('barangs.getData');
 
-Auth::routes();
+//excel
+Route::get('exportExcel', [SepatuController::class, 'exportExcel'])->name('barangs.exportExcel');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
