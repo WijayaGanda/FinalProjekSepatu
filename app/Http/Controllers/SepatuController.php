@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SepatuExport;
+
 use App\Models\Shoe;
 use App\Models\Category;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SepatuController extends Controller
 {
@@ -15,12 +21,9 @@ class SepatuController extends Controller
     public function index()
     {
         $pageTitle = 'Daftar Sepatu';
-        // ELOQUENT
+        confirmDelete();
         $shoes = Shoe::all();
-        return view('barang.index', [
-            'pageTitle' => $pageTitle,
-            'shoes' => $shoes
-        ]);
+        return view('barang.index', compact('pageTitle'));
     }
 
     /**
@@ -28,7 +31,13 @@ class SepatuController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Tambah Sepatu';
+
+        // ELOQUENT
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+
+        return view('barang.create', compact('pageTitle', 'categories', 'suppliers'));
     }
 
     /**
@@ -36,7 +45,45 @@ class SepatuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'required' => ':Attribute harus diisi.',
+            'numeric' => 'Isi :attribute dengan angka'
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'merk' => 'required',
+            'size' => 'required|numeric',
+            'stock' => 'required|numeric',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $file = $request->file('img');
+
+        if ($file != null) {
+            $originalFilename = $file->getClientOriginalName();
+            $encryptedFilename = $file->hashName();
+
+            // menampilkan File
+            $file->store('public/files');
+        }
+        // ELOQUENT
+        $shoe = new Shoe();
+        $shoe->merk = $request->merk;
+        $shoe->ukuran = $request->size;
+        $shoe->stok = $request->stock;
+        $shoe->category_id = $request->category;
+        $shoe->supplier_id = $request->supplier;
+        if ($file != null) {
+            $shoe->original_filename = $originalFilename;
+            $shoe->encrypted_filename = $encryptedFilename;
+        }
+
+        $shoe->save();
+        Alert::success('Added Successfully', 'Shoes Data Added Successfully');
+
+        return redirect()->route('barangs.index');
     }
 
     /**
@@ -44,7 +91,12 @@ class SepatuController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pageTitle = 'Shoes Detail';
+
+        // ELOQUENT
+        $shoe = Shoe::find($id);
+
+        return view('barang.show', compact('pageTitle', 'shoe'));
     }
 
     /**
@@ -52,7 +104,14 @@ class SepatuController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pageTitle = 'Edit Sepatu';
+
+        // ELOQUENT
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+        $shoe = Shoe::find($id);
+
+        return view('barang.edit', compact('pageTitle', 'shoe', 'suppliers', 'categories'));
     }
 
     /**
@@ -60,7 +119,46 @@ class SepatuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $messages = [
+            'required' => ':Attribute harus diisi.',
+            'numeric' => 'Isi :attribute dengan angka'
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'merk' => 'required',
+            'size' => 'required|numeric',
+            'stock' => 'required|numeric',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        // ELOQUENT
+        $shoe = Shoe::find($id);
+        $shoe->merk = $request->merk;
+        $shoe->ukuran = $request->size;
+        $shoe->stok = $request->stock;
+        $shoe->category_id = $request->category;
+        $shoe->supplier_id = $request->supplier;
+        if ($request->hasFile('img')) {
+            $file = $request->file('img');
+            $originalFilename = $file->getClientOriginalName();
+            $encryptedFilename = $file->hashName();
+            $file->store('public/files');
+
+            // menghapus cv lama jika tersedia
+            if ($shoe->encrypted_filename) {
+                Storage::delete('public/files/' . $shoe->encrypted_filename);
+            }
+
+            $shoe->original_filename = $originalFilename;
+            $shoe->encrypted_filename = $encryptedFilename;
+        }
+
+        $shoe->save();
+        Alert::success('Updated Successfully', 'Shoes Data Updated Successfully');
+
+        return redirect()->route('barangs.index');
     }
 
     /**
@@ -68,6 +166,34 @@ class SepatuController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // ELOQUENT
+        $shoe = Shoe::find($id);
+
+        //menghapus cv
+        if ($shoe->encrypted_filename) {
+            Storage::delete('public/files/' . $shoe->encrypted_filename);
+        }
+        $shoe->delete();
+        Alert::success('Deleted Successfully', 'Shoes Data Deleted');
+        return redirect()->route('barangs.index');
+    }
+
+    public function getData(Request $request)
+    {
+        $shoes = Shoe::with('category', 'supplier');
+
+        if ($request->ajax()) {
+            return datatables()->of($shoes)
+                ->addIndexColumn()
+                ->addColumn('action', function ($shoe) {
+                    return view('barang.action', compact('shoe'));
+                })
+                ->toJson();
+        }
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new SepatuExport, 'sepatu.xlsx');
     }
 }
