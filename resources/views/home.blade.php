@@ -108,188 +108,42 @@
 
     <div class="d-flex justify-content-center">
         <ul class="product-list">
-            <li class="product-item">
-                <div class="product-item-photo">
-                    <span class="product-image-container">
-                        <span class="product-image-wrapper">
-                            <img src="underarmour2.jpg" loading="lazy" width="300" height="300"
-                                alt="Under Armour UA Curry 4 - B&W">
+            @foreach ($shoes as $shoe)
+                <li class="product-item">
+                    <div class="product-item-photo">
+                        <span class="product-image-container">
+                            <span class="product-image-wrapper">
+                                @if ($shoe->encrypted_filename)
+                                    <img src="{{ asset('storage/files/' . $shoe->encrypted_filename) }}"
+                                        alt="{{ $shoe->original_filename }}" width="300px" height="300px">
+                                @else
+                                    No image available
+                                @endif
+                            </span>
                         </span>
-                    </span>
-                </div> <br>
-                <div class="stock">
-                    <b>
-                        <p class="text-primary"><span class="stock-label">Stock :</span>
-                            <span class="amount-stock">70</span>
-                        </p>
-                    </b>
-                </div>
-                <hr>
-                <div class="product-item-details">
-                    <strong class="product-item-name">
-                        Under Armour UA Curry 4 - B&W
-                    </strong>
-                    <hr>
-                    <div class="price-wrapper-container">
-                        <div class="category-wrapper-container">
-                            <span class="category">Male Shoes</span>
-                        </div>
+                    </div> <br>
+                    <div class="stock">
+                        <b>
+                            <p class="text-primary"><span class="stock-label">Stock :</span>
+                                <span class="amount-stock">{{$shoe->stok}}</span>
+                            </p>
+                        </b>
                     </div>
-                    <div class="discount">Marketama Indah</div>
-                </div>
-            </li>
-
-            <li class="product-item">
-                <div class="product-item-photo">
-                    <span class="product-image-container">
-                        <span class="product-image-wrapper">
-                            <img src="converseblue.jpg" loading="lazy" width="300" height="300" alt="converse-blue">
-                        </span>
-                    </span>
-                </div> <br>
-                <div class="stock">
-                    <b>
-                        <p class="text-primary"><span class="stock-label">Stock :</span>
-                            <span class="amount-stock">150</span>
-                        </p>
-                    </b>
-                </div>
-                <hr>
-                <div class="product-item-details">
-                    <strong class="product-item-name">
-                        Chuck Taylor All Star - Blue
-                    </strong>
                     <hr>
-                    <div class="price-wrapper-container">
-                        <div class="category-wrapper-container">
-                            <span class="category">Female Shoes</span>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            {{$shoe->merk}}
+                        </strong>
+                        <hr>
+                        <div class="price-wrapper-container">
+                            <div class="category-wrapper-container">
+                                <span class="category">{{$shoe->category->nama}}</span>
+                            </div>
                         </div>
+                        <div class="discount">{{$shoe->supplier->nama}}</div>
                     </div>
-                    <div class="discount">Outomount</div>
-                </div>
-            </li>
-
-            <li class="product-item">
-                <div class="product-item-photo">
-                    <span class="product-image-container">
-                        <span class="product-image-wrapper">
-                            <img src="skechershoes.jpeg" loading="lazy" width="300" height="300" alt="converse-blue">
-                        </span>
-                    </span>
-                </div> <br>
-                <div class="stock">
-                    <b>
-                        <p class="text-primary"><span class="stock-label">Stock :</span>
-                            <span class="amount-stock">110</span>
-                        </p>
-                    </b>
-                </div>
-                <hr>
-                <div class="product-item-details">
-                    <strong class="product-item-name">
-                        Skechers Go Run - White Blue
-                    </strong>
-                    <hr>
-                    <div class="price-wrapper-container">
-                        <div class="category-wrapper-container">
-                            <span class="category">Female Shoes</span>
-                        </div>
-                    </div>
-                    <div class="discount">Nice So</div>
-                </div>
-            </li>
-
-            <li class="product-item">
-                <div class="product-item-photo">
-                    <span class="product-image-container">
-                        <span class="product-image-wrapper">
-                            <img src="adistar2.jpeg" loading="lazy" width="300" height="300" alt="converse-blue">
-                        </span>
-                    </span>
-                </div> <br>
-                <div class="stock">
-                    <b>
-                        <p class="text-primary"><span class="stock-label">Stock :</span>
-                            <span class="amount-stock">79</span>
-                        </p>
-                    </b>
-                </div>
-                <hr>
-                <div class="product-item-details">
-                    <strong class="product-item-name">
-                        Adidas Adistar 2 - B&W
-                    </strong>
-                    <hr>
-                    <div class="price-wrapper-container">
-                        <div class="category-wrapper-container">
-                            <span class="category">Kids Shoes</span>
-                        </div>
-                    </div>
-                    <div class="discount">Planet Sport Kids</div>
-                </div>
-            </li>
-
-            <li class="product-item">
-                <div class="product-item-photo">
-                    <span class="product-image-container">
-                        <span class="product-image-wrapper">
-                            <img src="nikeair.jpg" loading="lazy" width="300" height="300" alt="converse-blue">
-                        </span>
-                    </span>
-                </div> <br>
-                <div class="stock">
-                    <b>
-                        <p class="text-primary"><span class="stock-label">Stock :</span>
-                            <span class="amount-stock">79</span>
-                        </p>
-                    </b>
-                </div>
-                <hr>
-                <div class="product-item-details">
-                    <strong class="product-item-name">
-                        Nike Air Force 1 - Low
-                    </strong>
-                    <hr>
-                    <div class="price-wrapper-container">
-                        <div class="category-wrapper-container">
-                            <span class="category">Male Shoes</span>
-                        </div>
-                    </div>
-                    <div class="discount">Marketama Indah</div>
-                </div>
-            </li>
-
-            <li class="product-item">
-                <div class="product-item-photo">
-                    <span class="product-image-container">
-                        <span class="product-image-wrapper">
-                            <img src="airjordan4.jpg" loading="lazy" width="300" height="300" alt="converse-blue">
-                        </span>
-                    </span>
-                </div> <br>
-                <div class="stock">
-                    <b>
-                        <p class="text-primary"><span class="stock-label">Stock :</span>
-                            <span class="amount-stock">79</span>
-                        </p>
-                    </b>
-                </div>
-                <hr>
-                <div class="product-item-details">
-                    <strong class="product-item-name">
-                        Air Jordan 4 Retro - Grey
-                    </strong>
-                    <hr>
-                    <div class="price-wrapper-container">
-                        <div class="category-wrapper-container">
-                            <span class="category">Male Shoes</span>
-                        </div>
-                    </div>
-                    <div class="discount">Mayapada Group</div>
-                </div>
-            </li>
-        </ul>
-    </div>
+                </li>
+            @endforeach
 
     <div class="quotes">
         <i class="bi bi-quote">Shoes that Move with You, Wherever Life Takes You.</i>

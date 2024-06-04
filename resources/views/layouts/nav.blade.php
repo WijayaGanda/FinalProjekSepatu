@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
                 <a class="nav-link  @if ($currentRouteName == 'home') active @endif" aria-current="page"
-                    href="{{ route('home') }}">Home</a>
+                    href="{{ route('homes.index') }}">Home</a>
                 <a class="nav-link {{ request()->is('login') ? 'active' : '' }}" aria-current="page"
                     href="/login">Login</a>
                 <a class="nav-link  @if ($currentRouteName == 'barangs.index') active @endif" aria-current="page"
