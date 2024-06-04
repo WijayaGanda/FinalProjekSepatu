@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\SepatuChart;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    function index(){
+    public function index(SepatuChart $chart){
         $pageTitle = 'Home';
-        return view('home',['pageTitle'=>$pageTitle]);
+        return view('home',[
+            'pageTitle'=>$pageTitle,
+            'chart'=>$chart->build(),
+    ]);
     }
 }

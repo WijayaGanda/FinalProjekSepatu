@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // klo dah kelar diganti lagi ke home
 Route::get('/', function () {
-    return view('barang.create');
+    return view('login');
 });
 
 Route::resource('barangs', SepatuController::class);

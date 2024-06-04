@@ -294,4 +294,11 @@
     <div class="quotes">
         <i class="bi bi-quote">Shoes that Move with You, Wherever Life Takes You.</i>
     </div>
+
+    <div class="p-6 m-20 bg-warning rounded shadow">
+        {!!$chart->container()!!}
+    </div>
+    <script src="{{$chart->cdn()}}"></script>
+
+    {{$chart->script()}}
 @endsection
