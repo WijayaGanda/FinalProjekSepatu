@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SepatuController;
 use Illuminate\Support\Facades\Route;
@@ -21,9 +22,10 @@ Route::get('/', function () {
 });
 
 Route::resource('barangs', SepatuController::class);
-Route::get('home',[HomeController::class, 'index'])->name('home');
+Route::resource('homes', HomeController::class);
 Route::get('getShoes', [SepatuController::class, 'getData'])->name('barangs.getData');
 
 //excel
 Route::get('exportExcel', [SepatuController::class, 'exportExcel'])->name('barangs.exportExcel');
+Route::get('exportPdf', [SepatuController::class, 'exportPdf'])->name('barangs.exportPdf');
 

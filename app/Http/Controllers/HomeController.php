@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Charts\SepatuChart;
+use App\Models\Shoe;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,5 +15,4 @@ class HomeController extends Controller
             'pageTitle'=>$pageTitle,
             'chart'=>$chart->build(),
     ]);
-    }
 }
