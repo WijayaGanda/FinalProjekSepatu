@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SepatuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// klo dah kelar diganti lagi ke home
 Route::get('/', function () {
-    return view('login');
+    return view('barang.create');
 });
 
+Route::resource('barangs', SepatuController::class);
 Route::get('home',[HomeController::class, 'index'])->name('home');
+Route::get('getShoes', [SepatuController::class, 'getData'])->name('barangs.getData');
+
+//excel
+Route::get('exportExcel', [SepatuController::class, 'exportExcel'])->name('barangs.exportExcel');
+
