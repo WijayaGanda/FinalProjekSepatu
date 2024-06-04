@@ -13,7 +13,7 @@
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" class="btn btn-outline-danger">
+                        <a href="{{route('barangs.exportPdf')}}" class="btn btn-outline-danger">
                             <i class="bi bi-download me-1"></i> to PDF
                         </a>
                     </li>

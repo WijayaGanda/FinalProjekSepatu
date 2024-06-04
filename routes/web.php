@@ -27,4 +27,5 @@ Route::get('getShoes', [SepatuController::class, 'getData'])->name('barangs.getD
 
 //excel
 Route::get('exportExcel', [SepatuController::class, 'exportExcel'])->name('barangs.exportExcel');
+Route::get('exportPdf', [SepatuController::class, 'exportPdf'])->name('barangs.exportPdf');
 

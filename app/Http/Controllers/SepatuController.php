@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\SepatuExport;
-
+use PDF;
 use App\Models\Shoe;
 use App\Models\Category;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf as WriterPdf;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SepatuController extends Controller
@@ -195,5 +196,13 @@ class SepatuController extends Controller
     public function exportExcel()
     {
         return Excel::download(new SepatuExport, 'sepatu.xlsx');
+    }
+    public function exportPdf()
+    {
+        $shoes = Shoe::all();
+
+        $pdf = PDF::loadView('barang.export_pdf', compact('shoes'));
+
+        return $pdf->download('barangs.pdf');
     }
 }
