@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // klo dah kelar diganti lagi ke home
 Route::get('/', function () {
-    return view('barang.create');
+    return view('barang.show');
 });
 
 Route::resource('barangs', SepatuController::class);
@@ -26,4 +26,5 @@ Route::get('getShoes', [SepatuController::class, 'getData'])->name('barangs.getD
 
 //excel
 Route::get('exportExcel', [SepatuController::class, 'exportExcel'])->name('barangs.exportExcel');
+Route::get('exportPdf', [SepatuController::class, 'exportPdf'])->name('barangs.exportPdf');
 
