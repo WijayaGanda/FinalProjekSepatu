@@ -9,10 +9,14 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(SepatuChart $chart){
+    public function index(SepatuChart $chart)
+    {
         $pageTitle = 'Home';
-        return view('home',[
-            'pageTitle'=>$pageTitle,
-            'chart'=>$chart->build(),
-    ]);
+        $shoes = Shoe::all();
+        return view('home', [
+            'pageTitle' => $pageTitle,
+            'chart' => $chart->build(),
+            'shoes' => $shoes
+        ]);
+    }
 }

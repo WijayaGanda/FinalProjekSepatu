@@ -36,6 +36,14 @@
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
+                    <div class="col mb-3">
+                        <label for="prize" class="form-label">Prize</label>
+                        <input class="form-control @error('harga') is-invalid @enderror" type="text" name="harga"
+                            id="harga" value="{{ $shoe->harga}}" placeholder="Insert prize">
+                        @error('harga')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="category" class="form-label">Category</label>

@@ -40,6 +40,7 @@
                         <th>Merk</th>
                         <th>Ukuran</th>
                         <th>Stok</th>
+                        <th>Harga</th>
                         <th>Kategori</th>
                         <th>Supplier</th>
                         <th>Aksi</th>

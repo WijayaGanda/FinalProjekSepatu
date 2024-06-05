@@ -55,6 +55,7 @@ class SepatuController extends Controller
             'merk' => 'required',
             'size' => 'required|numeric',
             'stock' => 'required|numeric',
+            'harga' => 'required|numeric',
         ], $messages);
 
         if ($validator->fails()) {
@@ -74,6 +75,7 @@ class SepatuController extends Controller
         $shoe->merk = $request->merk;
         $shoe->ukuran = $request->size;
         $shoe->stok = $request->stock;
+        $shoe->harga = $request->harga;
         $shoe->category_id = $request->category;
         $shoe->supplier_id = $request->supplier;
         if ($file != null) {
@@ -129,6 +131,7 @@ class SepatuController extends Controller
             'merk' => 'required',
             'size' => 'required|numeric',
             'stock' => 'required|numeric',
+            'harga' => 'required|numeric',
         ], $messages);
 
         if ($validator->fails()) {
@@ -139,6 +142,7 @@ class SepatuController extends Controller
         $shoe->merk = $request->merk;
         $shoe->ukuran = $request->size;
         $shoe->stok = $request->stock;
+        $shoe->harga = $request->harga;
         $shoe->category_id = $request->category;
         $shoe->supplier_id = $request->supplier;
         if ($request->hasFile('img')) {
