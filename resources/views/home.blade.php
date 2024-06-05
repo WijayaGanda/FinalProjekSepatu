@@ -73,11 +73,12 @@
         }
 
         .hello {
-            background-color: rgb(255, 255, 255);
+            background-color: white;
         }
     </style>
-
+    
     <div class="hello">
+        <br>
         <b>
             <h1 class="center-text">Shoes Branch</h1>
         </b>
@@ -144,12 +145,13 @@
                     </div>
                 </li>
             @endforeach
+        </ul>
+    </div>
 
     <div class="quotes">
         <i class="bi bi-quote">Shoes that Move with You, Wherever Life Takes You.</i>
     </div>
-
-    <div class="p-6 m-20 bg-warning rounded shadow">
+    <div class="p-6 m-20 rounded shadow" style="background-color: rgba(249, 237, 237, 0.73); colorz">
         {!!$chart->container()!!}
     </div>
     <script src="{{$chart->cdn()}}"></script>

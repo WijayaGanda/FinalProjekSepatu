@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('shoes', function (Blueprint $table) {
-            $table->string('original_filename')->after('category_id')->nullable();
-            $table->string('encrypted_filename')->after('original_filename')->nullable();
+            $table->string('harga')->after('stok')->nullable();
         });
     }
 
@@ -23,8 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('shoes', function (Blueprint $table) {
-            $table->dropColumn('encrypted_filename');
-            $table->dropColumn('original_filename');
+            $table->dropColumn('harga');
         });
     }
 };

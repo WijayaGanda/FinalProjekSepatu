@@ -38,12 +38,16 @@ $(function(){
                     name: "stok"
                 },
                 {
+                    data: "harga",
+                    name: "harga"
+                },
+                {
                     data: "category.nama",
                     name: "category.nama"
                 },
                 {
                     data: "supplier.nama",
-                    name: "category.nama"
+                    name: "supplier.nama"
                 },
                 {
                     data: "action",

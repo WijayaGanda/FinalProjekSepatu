@@ -22,7 +22,7 @@
                     <div class="col mb-3">
                         <label for="size" class="form-label">Size</label>
                         <input class="form-control @error('size') is-invalid @enderror" type="text" name="size"
-                            id="size" value="{{ old('size') }}" placeholder="Insert Stock">
+                            id="size" value="{{ old('size') }}" placeholder="Insert Size">
                         @error('size')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -32,6 +32,14 @@
                         <input class="form-control @error('stock') is-invalid @enderror" type="text" name="stock"
                             id="stock" value="{{ old('stock') }}" placeholder="Insert Stock">
                         @error('stock')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col mb-3">
+                        <label for="prize" class="form-label">Prize</label>
+                        <input class="form-control @error('harga') is-invalid @enderror" type="text" name="harga"
+                            id="harga" value="{{ old('harga') }}" placeholder="Insert prize">
+                        @error('harga')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>
