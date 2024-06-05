@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SepatuController;
 use Illuminate\Support\Facades\Route;
@@ -17,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 // klo dah kelar diganti lagi ke home
-Route::get('/', function () {
-    return view('login');
+Route::get('/', function(){
+    return view('auth.login');
 });
+
+Auth::routes();
 
 Route::resource('barangs', SepatuController::class);
 Route::resource('homes', HomeController::class);
