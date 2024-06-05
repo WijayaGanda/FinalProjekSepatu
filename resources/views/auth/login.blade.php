@@ -33,8 +33,19 @@
                                         class="col-md-3 col-form-label text-md-end">{{ __('') }} <i
                                             class="bi bi-person-lines-fill h3"></i></label>
 
+
+
                                     <div class="col-md-6 mb-3">
-                                        <input id="usernamel" type="username"
+                                        <input id="email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        {{-- <input id="usernamel" type="username"
                                             class="form-control @error('username') is-invalid @enderror" name="username"
                                             value="{{ old('username') }}" required autocomplete="username" autofocus
                                             placeholder="Enter Username">
@@ -43,7 +54,7 @@
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                        @enderror
+                                        @enderror --}}
                                     </div>
                                 </div>
 
