@@ -16,4 +16,7 @@ class Shoe extends Model
     {
         return $this->belongsTo(Supplier::class);
     }
+    public function transactions(){
+        return $this->hasMany(Transaction::class);
+    }
 }
