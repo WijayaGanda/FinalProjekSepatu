@@ -18,12 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// klo dah kelar diganti lagi ke home
 Route::get('/', function(){
     return view('auth.login');
-});
-Route::get('/penjualan', function () {
-    return view('barang.penjualan');
 });
 
 Auth::routes();
