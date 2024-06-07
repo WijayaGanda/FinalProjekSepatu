@@ -6,7 +6,7 @@
                 <h4 class="mb-3">{{ $pageTitle }}</h4>
             </div>
             <div class="col-lg-3 col-xl-6">
-                <ul class="list-inline mb-0 float-end">
+                {{-- <ul class="list-inline mb-0 float-end">
                     <li class="list-inline-item">
                         <a href="{{route('barangs.exportExcel')}}" class="btn btn-outline-success">
                             <i class="bi bi-download me-1"></i> to Excel
@@ -22,12 +22,12 @@
                         <a href="{{ route('barangs.create') }}" class="btn btn-primary">
                             <i class="bi bi-plus-circle me-1"></i> Create Shoes
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="list-inline-item">
                         <a href="{{ route('sales.create') }}" class="btn btn-primary">
                             <i class="bi bi-plus-circle me-1"></i> Penjualan
                         </a>
-                    </li>
+                    </li>
                     {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEmployee">
                         <i class="bi bi-plus-circle me-1"></i>Create Employee
                     </button> --}}
@@ -36,41 +36,27 @@
         </div>
         <hr>
         <div class="table-responsive border p-3 rounded-3">
-            <table class="table table-bordered table-hover table-striped mb-0 bg-white datatable" id="shoesTable">
+            <table class="table table-bordered table-hover table-striped mb-0 bg-white datatable">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>NO</th>
-                        <th width="1%">Gambar</th>
+                        <th>Nama Pelanggan</th>
                         <th>Merk</th>
-                        <th>Ukuran</th>
-                        <th>Stok</th>
-                        <th>Harga</th>
-                        <th>Kategori</th>
-                        <th>Supplier</th>
+                        <th>Jumlah Beli</th>
+                        <th>Total</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                {{-- <tbody>
-                    @foreach ($shoes as $shoe)
+                <tbody>
+                    @foreach ($transactions as $trans)
                         <tr>
-                            <td>
-                                @if ($shoe->encrypted_filename)
-                                    <img src="{{ asset('storage/files/' . $shoe->encrypted_filename) }}"
-                                        alt="{{ $shoe->original_filename }}" width="150px">
-                                @else
-                                    No image available
-                                @endif
-                            </td>
-                            <td>{{ $shoe->merk }}</td>
-                            <td>{{ $shoe->ukuran }}</td>
-                            <td>{{ $shoe->stok }}</td>
-                            <td>{{ $shoe->category->nama }}</td>
-                            <td>{{ $shoe->supplier->nama }}</td>
-                            <td>@include('barang.action')</td>
+                            <td>{{ $trans->nama_customer }}</td>
+                            <td>{{ $trans->shoe->merk }}</td>
+                            <td>{{ $trans->jumlah_beli }}</td>
+                            <td>{{ $trans->total_harga }}</td>
+                            <td><a href="{{ route('sales.exportNota', ['id' => $trans->id]) }}" class="btn btn-outline-dark btn-sm me-2">Cetak Nota</a></td>
                         </tr>
                     @endforeach
-                </tbody> --}}
+                </tbody>
             </table>
         </div>
     </div>

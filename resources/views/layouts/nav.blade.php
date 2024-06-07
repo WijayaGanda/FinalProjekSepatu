@@ -14,8 +14,8 @@
             <div class="navbar-nav">
                 <a class="nav-link  @if ($currentRouteName == 'home') active @endif" aria-current="page"
                     href="{{ route('homes.index') }}">Home</a>
-                <a class="nav-link {{ request()->is('login') ? 'active' : '' }}" aria-current="page"
-                    href="/login">Login</a>
+                <a class="nav-link  @if ($currentRouteName == 'sales.index') active @endif" aria-current="page"
+                    href="{{ route('sales.index') }}">Penjualan</a>
                 <a class="nav-link  @if ($currentRouteName == 'barangs.index') active @endif" aria-current="page"
                     href="{{ route('barangs.index') }}">List</a>
                 <a class="nav-link" href="/logout">Logout</a>
