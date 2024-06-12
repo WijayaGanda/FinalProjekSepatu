@@ -2,6 +2,7 @@
     $currentRouteName = Route::currentRouteName();
 @endphp
 
+
 <style>
     nav{
         background-color: #664d78;
