@@ -52,7 +52,8 @@ class PenjualanController extends Controller
         $shoes = Shoe::find($request->shoes_id);
 
         if ($shoes->stok < $request->jumlah) {
-            return redirect()->back()->withErrors(['stok' => 'Stok tidak mencukupi'])->withInput();
+            Alert::error('Failed', 'Shoes Stock Is Not Sufficient');
+            return redirect()->route('sales.index');
         }
 
         $transaction = new Transaction();
@@ -62,7 +63,7 @@ class PenjualanController extends Controller
         $transaction->total_harga = $request->total_harga;
         $transaction->save();
         // Update shoe stock
-        $shoes->stok -= $request->jumlah;
+        $shoes->stok -= $request->jumlah; //decrement
         $shoes->save();
 
         Alert::success('Sold Successfully', 'Shoes Sold Successfully');

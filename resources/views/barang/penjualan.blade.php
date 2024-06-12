@@ -1,75 +1,75 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-sm my-5">
-        <form action="{{ route('sales.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="row justify-content-center">
-                <div class="p-5 bg-light rounded-3 col-xl-4 border">
-                    <div class="mb-3 text-center">
-                        <h3 style="font-weight: bold;">Penjualan Sepatu</h3>
-                    </div>
-                    <hr style="height: 5px; background-color: black; border: none;">
-                    <div class="row">
-                        <div class="col-md-12 mb-3">
-                            <label for="nama" class="form-label">Nama Pembeli: </label>
-                            <h5>
-                                <input class="form-control @error('nama_pembeli') is-invalid @enderror" type="text"
-                                    name="nama_pembeli" id="brand" value="{{ old('nama') }}"
-                                    placeholder="Insert Customer Name">
-                                @error('nama_pembeli')
-                                    <span class="invalid-feedback">{{ $message }}</span>
-                                @enderror
-                                <hr>
+
+    <body style="background:linear-gradient(to bottom, #6D5380, #000000)">
+        <div class="container-sm my-5" style="max-width: 105rem; height: 42rem">
+            <form action="{{ route('sales.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="row justify-content-center">
+                    <div class="p-5 bg-light rounded-3 col-xl-4 border">
+                        <div class="mb-3 text-center">
+                            <i class="bi bi-cart-check-fill h3"></i>
+                            <h4>Penjualan Sepatu</h4>
                         </div>
+                        <hr>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="merk" class="form-label">Merk Sepatu</label>
+                                <label for="nama" class="form-label" style="font-weight: bold">Nama Pembeli: </label>
+                                <h5>
+                                    <input class="form-control @error('nama_pembeli') is-invalid @enderror" type="text"
+                                        name="nama_pembeli" id="brand" value="{{ old('nama_pembeli') }}"
+                                        placeholder="Insert Customer Name">
+                                    @error('nama_pembeli')
+                                        <span class="invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="merk" class="form-label" style="font-weight: bold">Merk Sepatu</label>
                                 <div class="dropdown">
                                     <select class="form-select" name="shoes_id" id="merk">
                                         @foreach ($shoes as $shoe)
                                             <option value="{{ $shoe->id }}" data-ukuran="{{ $shoe->ukuran }}"
                                                 data-harga="{{ $shoe->harga }}"
-                                                {{ old('shoe') == $shoe->id ? 'selected' : '' }}>
+                                                {{ old('shoes_id') == $shoe->id ? 'selected' : '' }}>
                                                 {{ $shoe->merk . ' - ' . $shoe->ukuran }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="ukuran" class="form-label">Ukuran Sepatu: </label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="ukuran" class="form-label" style="font-weight: bold">Ukuran Sepatu: </label>
                                 <input class="form-control" type="text" id="ukuran" disabled>
-                                <hr>
                             </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="stok" class="form-label">Harga Sepatu: </label>
+                            <div class="col-md-6 mb-3">
+                                <label for="stok" class="form-label" style="font-weight: bold">Harga Sepatu: </label>
                                 <input class="form-control" type="text" id="harga" disabled>
-                                <hr>
                             </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="uk" class="form-label">Jumlah Beli: </label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="harga" class="form-label" style="font-weight: bold">Jumlah Beli: </label>
                                 <input class="form-control @error('jumlah') is-invalid @enderror" type="number"
                                     name="jumlah" id="jumlah" value="{{ old('jumlah') }}" placeholder="Insert amount">
                                 @error('jumlah')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
-                                <hr>
                             </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="uk" class="form-label">Total Harga: </label>
+                            <div class="col-md-6 mb-3">
+                                <label for="uk" class="form-label" style="font-weight: bold">Total Harga: </label>
                                 <input class="form-control @error('total') is-invalid @enderror" type="text"
-                                    name="total_harga" id="total_harga" value="{{ old('jumlah') }}" placeholder="Total"
-                                    >
+                                    name="total_harga" id="total_harga" value="{{ old('jumlah') }}" placeholder="Total">
                                 @error('jumlah')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
-                                <hr>
                             </div>
                         </div>
-                        <hr style="height: 5px; background-color: black; border: none;">
+                        <hr>
                         <div class="row">
                             <div class="col-md-6 d-grid mb-3">
-                                <a href="{{ route('barangs.index') }}" class="btn btn-outline-light btn-lg mt-3"
-                                    style="background-color: black"><i class="bi-arrow-left-circle me-2"></i> Back</a>
+                                <a href="{{ route('barangs.index') }}" class="btn btn-outline-dark btn-lg mt-3"
+                                style="background-color: black)"><i class="bi-arrow-left-circle me-2"></i> Back</a>
                             </div>
                             <div class="col-md-6 d-grid mb-3">
                                 <button type="submit" class="btn btn-outline-success btn-lg mt-3"><i
@@ -79,8 +79,9 @@
                         </div>
                     </div>
                 </div>
-        </form>
-    </div>
+            </form>
+        </div>
+    </body>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const shoeSelect = document.getElementById('merk');

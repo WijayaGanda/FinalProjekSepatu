@@ -38,11 +38,11 @@
         </thead>
         <tbody>
                 <tr>
-                    <td>{{ $transaction->nama_customer }}</td>
-                    <td>{{ $transaction->shoe->merk }}</td>
-                    <td>{{ $transaction->shoe->ukuran }}</td>
+                    <td align="center">{{ $transaction->nama_customer }}</td>
+                    <td align="center">{{ $transaction->shoe->merk }}</td>
+                    <td align="center">{{ $transaction->shoe->ukuran }}</td>
                     <td align="center">{{ $transaction->jumlah_beli }}</td>
-                    <td>{{ $transaction->total_harga }}</td>
+                    <td align="center">{{ $transaction->total_harga }}</td>
                 </tr>
         </tbody>
     </table>
