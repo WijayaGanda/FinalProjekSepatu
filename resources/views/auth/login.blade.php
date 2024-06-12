@@ -9,7 +9,7 @@
     @vite('resources/sass/app.scss')
 </head>
 
-<body class="d-flex justify-content-center align-items-center min-vh-100" style="background-color:rgb(7, 7, 175)">
+<body class="d-flex justify-content-center align-items-center min-vh-100" style="background:linear-gradient(to bottom, #000000, #6D5380);">
     @vite('resources/js/app.js')
     @include('sweetalert::alert')
     @stack('scripts')
@@ -38,7 +38,7 @@
                                     <div class="col-md-6 mb-3">
                                         <input id="email" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter Email">
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
