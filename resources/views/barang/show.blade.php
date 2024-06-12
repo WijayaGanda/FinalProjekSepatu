@@ -16,7 +16,7 @@
                             <h5>
                                 @if ($shoe->encrypted_filename)
                                     <img src="{{ asset('storage/files/' . $shoe->encrypted_filename) }}"
-                                        alt="{{ $shoe->original_filename }}" width="200px">
+                                        alt="{{ $shoe->original_filename }}" width="250px">
                                 @else
                                     No image available
                                 @endif
