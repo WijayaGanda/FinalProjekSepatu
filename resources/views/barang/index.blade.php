@@ -28,9 +28,6 @@
                             <i class="bi bi-plus-circle me-1"></i> Penjualan
                         </a>
                     </li>
-                    {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEmployee">
-                        <i class="bi bi-plus-circle me-1"></i>Create Employee
-                    </button> --}}
                 </ul>
             </div>
         </div>
@@ -51,26 +48,6 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                {{-- <tbody>
-                    @foreach ($shoes as $shoe)
-                        <tr>
-                            <td>
-                                @if ($shoe->encrypted_filename)
-                                    <img src="{{ asset('storage/files/' . $shoe->encrypted_filename) }}"
-                                        alt="{{ $shoe->original_filename }}" width="150px">
-                                @else
-                                    No image available
-                                @endif
-                            </td>
-                            <td>{{ $shoe->merk }}</td>
-                            <td>{{ $shoe->ukuran }}</td>
-                            <td>{{ $shoe->stok }}</td>
-                            <td>{{ $shoe->category->nama }}</td>
-                            <td>{{ $shoe->supplier->nama }}</td>
-                            <td>@include('barang.action')</td>
-                        </tr>
-                    @endforeach
-                </tbody> --}}
             </table>
         </div>
     </div>

@@ -40,18 +40,18 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="ukuran" class="form-label" style="font-weight: bold">Ukuran Sepatu: </label>
-                                <input class="form-control" type="text" id="ukuran" disabled>
+                                <input class="form-control" type="text" id="ukuran" disabled placeholder="Ukuran Sepatu">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="stok" class="form-label" style="font-weight: bold">Harga Sepatu: </label>
-                                <input class="form-control" type="text" id="harga" disabled>
+                                <input class="form-control" type="text" id="harga" disabled placeholder="Harga Sepatu">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="harga" class="form-label" style="font-weight: bold">Jumlah Beli: </label>
                                 <input class="form-control @error('jumlah') is-invalid @enderror" type="number"
-                                    name="jumlah" id="jumlah" value="{{ old('jumlah') }}" placeholder="Insert amount">
+                                    name="jumlah" id="jumlah" value="{{ old('jumlah') }}" placeholder="Insert amount" min="0">
                                 @error('jumlah')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
@@ -59,7 +59,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="uk" class="form-label" style="font-weight: bold">Total Harga: </label>
                                 <input class="form-control @error('total') is-invalid @enderror" type="text"
-                                    name="total_harga" id="total_harga" value="{{ old('jumlah') }}" placeholder="Total">
+                                    name="total_harga" id="total_harga" value="{{ old('jumlah') }}" placeholder="Total" readonly>
                                 @error('jumlah')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror

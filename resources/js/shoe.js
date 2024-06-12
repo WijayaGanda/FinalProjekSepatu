@@ -17,7 +17,7 @@ $(function(){
                 {
                     data: "encrypted_filename",
                     name: "img",
-                    render: function(data, type, full, meta) {
+                    render: function(data, full) {
                         const originalFilename = full.original_filename;
                         const imageUrl = `/storage/files/${data}`;
                         return `<img src="${imageUrl}" alt="${originalFilename}" title="${originalFilename}" width="150px"/>`;

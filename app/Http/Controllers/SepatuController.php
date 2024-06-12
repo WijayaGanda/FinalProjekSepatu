@@ -151,7 +151,6 @@ class SepatuController extends Controller
             $encryptedFilename = $file->hashName();
             $file->store('public/files');
 
-            // menghapus cv lama jika tersedia
             if ($shoe->encrypted_filename) {
                 Storage::delete('public/files/' . $shoe->encrypted_filename);
             }
@@ -174,7 +173,6 @@ class SepatuController extends Controller
         // ELOQUENT
         $shoe = Shoe::find($id);
 
-        //menghapus cv
         if ($shoe->encrypted_filename) {
             Storage::delete('public/files/' . $shoe->encrypted_filename);
         }
