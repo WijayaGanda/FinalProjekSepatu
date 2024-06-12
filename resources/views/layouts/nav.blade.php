@@ -2,6 +2,19 @@
     $currentRouteName = Route::currentRouteName();
 @endphp
 
+
+<style>
+    nav{
+        background-color: #664d78;
+    }
+    .navbar-brand{
+        color: #ffffff;
+    }
+    .navbar-nav a{
+        color: #ffffff;
+    }
+</style>
+
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('homes.index') }}"><i class="bi bi-box-seam"></i> SB</a>
