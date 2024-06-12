@@ -70,10 +70,11 @@
 
         .stock {
             text-align: end;
+            color: darkmagenta;
         }
 
         .hello {
-            background-color: white;
+            background-color: #ffffff;
         }
     </style>
     
@@ -125,7 +126,7 @@
                     </div> <br>
                     <div class="stock">
                         <b>
-                            <p class="text-primary"><span class="stock-label">Stock :</span>
+                            <p><span class="stock-label">Stock :</span>
                                 <span class="amount-stock">{{$shoe->stok}}</span>
                             </p>
                         </b>
@@ -151,7 +152,7 @@
     <div class="quotes">
         <i class="bi bi-quote">Shoes that Move with You, Wherever Life Takes You.</i>
     </div>
-    <div class="p-6 m-20 rounded shadow" style="background-color: rgba(249, 237, 237, 0.73); colorz">
+    <div class="p-6 m-20 rounded shadow" style="background-color:#ffffff">
         {!!$chart->container()!!}
     </div>
     <script src="{{$chart->cdn()}}"></script>
