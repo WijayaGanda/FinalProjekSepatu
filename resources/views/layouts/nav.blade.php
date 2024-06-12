@@ -2,8 +2,7 @@
     $currentRouteName = Route::currentRouteName();
 @endphp
 
-
-<nav class="navbar navbar-expand-lg" style="background-color: rgb(220, 220, 220)">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('homes.index') }}"><i class="bi bi-box-seam"></i> SB</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -20,12 +19,12 @@
                     href="{{ route('barangs.index') }}">List</a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf   
+                    @csrf
                 </form>
                 <a class="nav-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
-                </a>
+                    </a>
             </div>
         </div>
     </div>
