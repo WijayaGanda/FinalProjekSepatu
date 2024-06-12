@@ -66,6 +66,7 @@
             text-align: center;
             padding-top: 3em;
             padding-bottom: 1em;
+            font-size: 20px;
         }
 
         .stock {
