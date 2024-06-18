@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Employee List</title>
+    <title>Product List</title>
     <style>
         html {
             font-size: 12px;
@@ -25,16 +25,16 @@
 </head>
 
 <body>
-    <h1>Employee List</h1>
+    <h1>Product List</h1>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>No.</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>Position</th>
+                <th>Merk</th>
+                <th>Size</th>
+                <th>Stock</th>
+                <th>Category</th>
+                <th>Supplier</th>
             </tr>
         </thead>
         <tbody>
