@@ -16,7 +16,7 @@ class SepatuChart
 
     public function build(): \ArielMejiaDev\LarapexCharts\BarChart
     {
-        $shoes=Shoe::get();
+        $shoes=Shoe::all();
         $shoeslabel=$shoes->pluck('merk')->toArray();
         $shoescount=$shoes->pluck('stok')->toArray();
         return $this->chart->barChart()
