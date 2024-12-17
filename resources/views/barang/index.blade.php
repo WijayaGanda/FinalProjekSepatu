@@ -38,7 +38,7 @@
                     <tr>
                         <th>ID</th>
                         <th>NO</th>
-                        <th width="1%">Gambar</th>
+                        <th width="2%">Gambar</th>
                         <th>Merk</th>
                         <th>Ukuran</th>
                         <th>Stok</th>
