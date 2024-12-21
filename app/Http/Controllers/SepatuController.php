@@ -181,6 +181,19 @@ class SepatuController extends Controller
         return redirect()->route('barangs.index');
     }
 
+    public function exportExcel()
+    {
+        return Excel::download(new SepatuExport, 'sepatu.xlsx');
+    }
+    public function exportPdf()
+    {
+        $shoes = Shoe::all();
+
+        $pdf = PDF::loadView('barang.export_pdf', compact('shoes'));
+
+        return $pdf->download('barangs.pdf');
+    }
+
     public function getData(Request $request)
     {
         $shoes = Shoe::with('category', 'supplier');
@@ -193,18 +206,5 @@ class SepatuController extends Controller
                 })
                 ->toJson();
         }
-    }
-
-    public function exportExcel()
-    {
-        return Excel::download(new SepatuExport, 'sepatu.xlsx');
-    }
-    public function exportPdf()
-    {
-        $shoes = Shoe::all();
-
-        $pdf = PDF::loadView('barang.export_pdf', compact('shoes'));
-
-        return $pdf->download('barangs.pdf');
     }
 }
