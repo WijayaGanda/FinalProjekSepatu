@@ -21,7 +21,7 @@
 
                         <div class="mt-3 text-center" style="font-size: 30px; font-weight: bold; font-size:23pt"><i
                                 class="bi-person-circle fs-1"></i>
-                            <br>{{ __('Login Employee') }}
+                            <br>{{ __('Login') }}
                         </div>
                         <div class="card-body">
                             <hr>
@@ -87,6 +87,12 @@
                                 </div>
                         </div>
                         </form>
+                        <div class="text-center mt-3">
+                            <p>Forgot Password ?  <a href="{{ route('password.reset.direct') }}">Reset disini</a></p>
+                        </div>
+                        <div class="text-center mt-3">
+                            <p>Belum punya akun? <a href="{{ route('register') }}">Daftar di sini</a></p>
+                        </div>
                     </div>
                 </div>
             </div>

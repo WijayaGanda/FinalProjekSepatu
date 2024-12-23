@@ -31,13 +31,13 @@
                 <a class="nav-link  @if ($currentRouteName == 'barangs.index') active @endif" aria-current="page"
                     href="{{ route('barangs.index') }}">List</a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
                 <a class="nav-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
-                    </a>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </div>
         </div>
     </div>

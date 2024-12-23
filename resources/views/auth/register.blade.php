@@ -1,6 +1,18 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    @vite('resources/sass/app.scss')
+</head>
+
+<body>
+    @vite('resources/js/app.js')
+    @include('sweetalert::alert')
+    @stack('scripts')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,7 +20,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -74,4 +86,6 @@
         </div>
     </div>
 </div>
-@endsection
+    
+</body>
+    
