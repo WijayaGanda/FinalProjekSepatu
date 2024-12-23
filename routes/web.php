@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\SepatuController;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,11 @@ Route::get('exportExcel', [SepatuController::class, 'exportExcel'])->name('baran
 Route::get('exportPdf', [SepatuController::class, 'exportPdf'])->name('barangs.exportPdf');
 
 Route::get('/exportNota/{id}', [PenjualanController::class, 'exportNota'])->name('sales.exportNota');
+
+
+
+Route::get('/password/reset-direct', [ResetPasswordController::class, 'showForm'])->name('password.reset.direct');
+Route::post('/password/reset-direct', [ResetPasswordController::class, 'reset'])->name('password.reset.direct.submit');
+
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
