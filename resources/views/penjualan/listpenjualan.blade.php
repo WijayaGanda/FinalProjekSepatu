@@ -25,7 +25,7 @@
                     </li> --}}
                     <li class="list-inline-item">
                         <a href="{{ route('sales.create') }}" class="btn btn-primary">
-                            <i class="bi bi-plus-circle me-1"></i> Penjualan
+                            <i class="bi bi-plus-circle me-1"></i> Penjualan Sepatu
                         </a>
                     </li>
                     {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEmployee">
