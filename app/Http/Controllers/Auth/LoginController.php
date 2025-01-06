@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/homes';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -41,12 +41,22 @@ class LoginController extends Controller
         $this->middleware('auth')->only('logout');
     }
 
-    public function logout(Request $request)
-{
-    Auth::logout(); // Log out pengguna
-    $request->session()->invalidate(); // Menghapus session
-    $request->session()->regenerateToken(); // Regenerasi token CSRF
+    protected function authenticated(Request $request, $user)
+    {
+        // Arahkan berdasarkan role setelah login
+        if ($user->role == 'admin') {
+            return redirect()->route('home'); // Ganti dengan route admin yang sesuai
+        } else {
+            return redirect()->route('pelanggan.homecustomer'); // Ganti dengan route customer yang sesuai
+        }
+    }
 
-    return redirect()->route('login'); // Redirect ke halaman login
-}
+    public function logout(Request $request)
+    {
+        Auth::logout(); // Log out pengguna
+        $request->session()->invalidate(); // Menghapus session
+        $request->session()->regenerateToken(); // Regenerasi token CSRF
+
+        return redirect()->route('login'); // Redirect ke halaman login
+    }
 }
