@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('shoe_id')->constrained();
             $table->string('jumlah_beli');
             $table->string('total_harga');
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
         });
     }

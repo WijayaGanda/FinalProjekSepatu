@@ -21,7 +21,17 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect('homes');
+                $user = Auth::user();
+
+                // Jika role admin, arahkan ke halaman admin (misalnya dashboard)
+                if ($user->role == 'admin') {
+                    return redirect()->route('home'); // Ganti dengan route admin Anda
+                }
+
+                // Jika role customer, arahkan ke halaman pelanggan
+                if ($user->role == 'customer') {
+                    return redirect()->route('pelanggan.homecustomer'); // Ganti dengan route customer Anda
+                }
             }
         }
 

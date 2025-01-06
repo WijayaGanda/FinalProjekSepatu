@@ -70,7 +70,7 @@ class PenjualanController extends Controller
 
         return redirect()->route('sales.index');
     }
-    public function exportNota($id)
+    public function exportNotaPenjualan($id)
     {
         $transaction = Transaction::findorFail($id);
 
