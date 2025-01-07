@@ -15,7 +15,7 @@
                         <input type="hidden" name="shoes_id" value="{{ $shoes->id }}">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="nama" class="form-label" style="font-weight: bold">Nama Penghutang: </label>
+                                <label for="nama" class="form-label" style="font-weight: bold">Nama Pembeli: </label>
                                 <h5>
                                     <input class="form-control @error('nama_pembeli') is-invalid @enderror" type="text"
                                         name="nama_pembeli" id="nama" value="{{ $userName }}"

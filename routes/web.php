@@ -28,6 +28,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('pelanggan.homecustomer');
 Auth::routes();
 
+Route::get('/password/reset-direct', [ResetPasswordController::class, 'showForm'])->name('password.reset.direct');
+Route::post('/password/reset-submit', [ResetPasswordController::class, 'reset'])->name('password.reset.direct.submit');
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('barangs', SepatuController::class);
     // Route::resource('homes', HomeController::class);
@@ -51,9 +54,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/exportNotaPenjualan/{id}', [PenjualanController::class, 'exportNotaPenjualan'])->name('sales.exportNotaPenjualan');
 
     Route::get('/exportNota/{id}', [CustomerSalesController::class, 'exportNota'])->name('customersales.exportNota');
-
-    Route::get('/password/reset-direct', [ResetPasswordController::class, 'showForm'])->name('password.reset.direct');
-    Route::post('/password/reset-direct', [ResetPasswordController::class, 'reset'])->name('password.reset.direct.submit');
 
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
